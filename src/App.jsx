@@ -7,53 +7,56 @@ import { FaXmark } from "react-icons/fa6";
 import Footer from './components/Footer/footer';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './App.css';
+
 function App() {
     const [favItems, setFavItems] = useState([]);
+
     // Function to add and update favourite item list
     const handleBidClick = (BidItem) => {
-        setFavItems([...favItems, BidItem]);
         if (!favItems.some((item) => item.id === BidItem.id)) {
-          setFavItems([...favItems, BidItem]);
-          toast.success(`"${BidItem.title}" added to favourites!`, {
-              position: "top-right",
-              autoClose: 3000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "Dark",
-          });
-      }
+            setFavItems([...favItems, BidItem]);
+            toast.success(`"${BidItem.title}" added to favourites!`, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }
     };
+
     // Function to remove an item from the favourites
     const handleRemoveFav = (id) => {
         const updatedFavItems = favItems.filter((item) => item.id !== id);
         setFavItems(updatedFavItems);
-    }
+    };
 
     return (
         <>
             <ToastContainer />
-            <Navbar></Navbar>
-            <Hero></Hero>
+            <Navbar />
+            <Hero />
 
-            {/* main section */}
+            {/* Main Section */}
             <div className="main px-36 py-28 bg-[#EBF0F5] w-[1820]">
                 <h1 className="text-[#0E2954] text-4xl mb-5 font-bold">Active Auctions</h1>
                 <p className="text-xl mb-8">Discover and bid on extraordinary items</p>
                 <div className="bid-container flex gap-6">
                     {/* Table of bid items */}
                     <div className="bid-table w-[70%] border-black bg-white shadow-sm rounded-2xl border-2">
-                        <BidItems handleBidClick={handleBidClick} favItems={favItems}></BidItems>
+                        <BidItems handleBidClick={handleBidClick} favItems={favItems} />
                     </div>
                     {/* Favourite items */}
-                    <div className="bidded-items w-[30%] flex flex-col items-center  bg-white shadow-sm rounded-2xl h-fit">
+                    <div className="bidded-items w-[30%] flex flex-col items-center bg-white shadow-sm rounded-2xl h-fit">
                         <h1 className="text-[#0E2954] text-2xl font-bold flex items-center">
                             <IoHeartOutline className="pl-4 w-15 h-25 text-gray-400" />
                             Favourite Items
                         </h1>
-                        <div className="fav-items grid gap-6 px-5  text-[#0E2954] border-t-2 border-b-2 py-4 w-full">
+                        <div className="fav-items grid gap-6 px-5 text-[#0E2954] border-t-2 border-b-2 py-4 w-full">
                             {favItems.map((item) => (
                                 <div key={item.id} className="card card-side shadow-sm rounded-2xl w-full">
                                     <figure>
@@ -65,30 +68,38 @@ function App() {
                                     </figure>
                                     <div className="card-body relative">
                                         <h2 className="card-title">{item.title}</h2>
-                                        <p className=''>${item.currentBidPrice.toFixed(2)}<span className='ml-6'>Bids: {item.bidsCount}</span></p>
-                                        <FaXmark className='w-8 h-8 absolute top-0 right-0 cursor-pointer 'onClick={()=>handleRemoveFav(item.id)}/>
+                                        <p>
+                                            ${item.currentBidPrice.toFixed(2)}
+                                            <span className="ml-6">Bids: {item.bidsCount}</span>
+                                        </p>
+                                        <FaXmark
+                                            className="w-8 h-8 absolute top-0 right-0 cursor-pointer"
+                                            onClick={() => handleRemoveFav(item.id)}
+                                        />
                                     </div>
                                 </div>
                             ))}
                             {/* Display message if no items are in favourites */}
                             {favItems.length === 0 && (
-                                <div className=' text-center text-gray-500 py-12 px-8 shadow-sm rounded-2xl'>
+                                <div className="text-center text-gray-500 py-12 px-8 shadow-sm rounded-2xl">
                                     <p>No items added to favourites yet.</p>
-                                    <p className='max-w-72 text-sm pt-6'>Click on the heart icon to add items to your favourites.</p>
+                                    <p className="max-w-72 text-sm pt-6">
+                                        Click on the heart icon to add items to your favourites.
+                                    </p>
                                 </div>
                             )}
-                        
                         </div>
-                        
-                        <div className='text-xl flex mt-4 py-8 font-semibold items-center'>
-                          <p>Total Bids Amount</p>
-                          <p className='ml-10'>${favItems.reduce((total, item) => total + item.currentBidPrice, 0).toFixed(2)}</p>
+
+                        <div className="text-xl flex mt-4 py-8 font-semibold items-center">
+                            <p>Total Bids Amount</p>
+                            <p className="ml-10">
+                                ${favItems.reduce((total, item) => total + item.currentBidPrice, 0).toFixed(2)}
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-            {/* Footer */}
-            <Footer></Footer>
+            <Footer />
         </>
     );
 }

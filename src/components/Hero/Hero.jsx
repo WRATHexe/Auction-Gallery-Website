@@ -3,11 +3,15 @@ import React from 'react';
 const Hero = () => {
     return (
         <div
-            className="hero h-[730px] w-[1820px] justify-start"
+            className="hero h-[730px] w-[1817px] justify-start"
             style={{
                 backgroundImage: "url('../src/assets/Banner-min.jpg')",
+                
+                backgroundSize: '135%',
+
+                backgroundPosition: 'left',
+                backgroundRepeat: 'no-repeat',
             }}>
-            {/* <div className="hero-overlay"></div> */}
             <div className="hero-content flex-col mx-36 max-w-2xl items-start">
                     <h1 className="text-5xl font-bold text-white">Discover Treasures from Every Corner</h1>
                     <p className="my-5 text-xl opacity-80 text-white">

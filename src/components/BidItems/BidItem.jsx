@@ -9,7 +9,7 @@ const BidItem = ({ BidItem, handleBidClick, favItems }) => {
 
     const handleLoveClick = () => {
         // Add or remove from favorites
-        handleBidClick(BidItem); 
+        handleBidClick(BidItem);
     };
 
     return (

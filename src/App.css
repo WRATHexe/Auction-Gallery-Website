@@ -1,0 +1,5 @@
+body {
+    width: 1817px;
+    margin: 0 auto; /* Center the body horizontally */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
