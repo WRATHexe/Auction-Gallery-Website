@@ -5,11 +5,26 @@ import { IoHeartOutline } from "react-icons/io5";
 import { useState } from 'react';
 import { FaXmark } from "react-icons/fa6";
 import Footer from './components/Footer/footer';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
     const [favItems, setFavItems] = useState([]);
     // Function to add and update favourite item list
     const handleBidClick = (BidItem) => {
         setFavItems([...favItems, BidItem]);
+        if (!favItems.some((item) => item.id === BidItem.id)) {
+          setFavItems([...favItems, BidItem]);
+          toast.success(`"${BidItem.title}" added to favourites!`, {
+              position: "top-right",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "",
+          });
+      }
     };
     // Function to remove an item from the favourites
     const handleRemoveFav = (id) => {
@@ -19,13 +34,14 @@ function App() {
 
     return (
         <>
+            <ToastContainer />
             <Navbar></Navbar>
             <Hero></Hero>
 
             {/* main section */}
             <div className="main px-36 py-28 bg-[#EBF0F5] w-[1820]">
                 <h1 className="text-[#0E2954] text-4xl mb-5 font-bold">Active Auctions</h1>
-                <p className="text-xl mb-8">Bid on your favorite items</p>
+                <p className="text-xl mb-8">Discover and bid on extraordinary items</p>
                 <div className="bid-container flex gap-6">
                     {/* Table of bid items */}
                     <div className="bid-table w-[70%] border-black bg-white shadow-sm rounded-2xl border-2">
@@ -64,7 +80,7 @@ function App() {
                         
                         </div>
                         
-                        <div className='text-xl flex mt-4 py-8 font-semibold flex items-center'>
+                        <div className='text-xl flex mt-4 py-8 font-semibold items-center'>
                           <p>Total Bids Amount</p>
                           <p className='ml-10'>${favItems.reduce((total, item) => total + item.currentBidPrice, 0).toFixed(2)}</p>
                         </div>

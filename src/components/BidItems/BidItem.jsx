@@ -1,31 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { IoHeartOutline, IoHeart } from "react-icons/io5";
-const BidItem = ({ BidItem ,handleBidClick, favItems}) => {
+
+const BidItem = ({ BidItem, handleBidClick, favItems }) => {
     const { id, image, title, currentBidPrice, timeLeft } = BidItem;
 
-    const [isLoved, setIsLoved] = useState(false);
-
-    useEffect(() => {
-        setIsLoved(favItems.some((item) => item.id === id));
-    }, [favItems, id]);
+    // Check if the item is in the favorites list
+    const isLoved = favItems.some((item) => item.id === id);
 
     const handleLoveClick = () => {
-        
-        setIsLoved(!isLoved);
-        <IoHeart className="pl-4 w-15 h-25 text-red-500 cursor-not-allowed pointer-none:" />
-        handleBidClick(BidItem);
-        alert( `"${title} added to favourites"`);
-        
+        // Add or remove from favorites
+        handleBidClick(BidItem); 
     };
 
     return (
-        <tr key={id} className='border-t-2 border-black hover:bg-gray-100'>
-            <td >
-                <div className='flex items-center gap-10'>
-                    <img 
-                        src={image} 
+        <tr key={id} className="border-t-2 border-black hover:bg-gray-100">
+            <td>
+                <div className="flex items-center gap-10">
+                    <img
+                        src={image}
                         alt={title}
-                        className="w-30 h-28 rounded-lg object-cover" 
+                        className="w-30 h-28 rounded-lg object-cover"
                     />
                     {title}
                 </div>
@@ -33,11 +27,15 @@ const BidItem = ({ BidItem ,handleBidClick, favItems}) => {
             <td>${currentBidPrice.toFixed(2)}</td>
             <td>{timeLeft}</td>
             <td>
-                <span className='fav-button'
-                    onClick={ !isLoved ? (handleLoveClick): null}
+                <span
+                    onClick={handleLoveClick}
+                    className={`cursor-pointer text-5xl ${isLoved ? 'text-red-500' : 'text-gray-400'}`}
                 >
-                    {isLoved ? <IoHeart className="pl-4 w-15 h-25 text-red-500 cursor-not-allowed pointer-none: " /> :
-                     <IoHeartOutline className="pl-4 w-15 h-25 text-gray-400" />}
+                    {isLoved ? (
+                        <IoHeart className="text-red-500" />
+                    ) : (
+                        <IoHeartOutline className="text-gray-400" />
+                    )}
                 </span>
             </td>
         </tr>

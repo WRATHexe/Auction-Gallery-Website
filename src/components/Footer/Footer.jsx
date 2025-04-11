@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <div>
-            <div className="navbar bg-base-100 shadow-sm px-auto py-6 grid items-center justify-center py-32">
+            <div className="navbar bg-base-100 shadow-sm px-auto grid items-center justify-center py-32">
             
                 <h1 className="btn btn-ghost text-3xl "><span className='text-blue-950'>Auction</span><span className='text-yellow-300 font-bold'>Gallery</span>
                 </h1>
