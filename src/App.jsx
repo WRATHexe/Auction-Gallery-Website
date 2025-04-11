@@ -4,6 +4,7 @@ import BidItems from './components/BidItems/BidItems';
 import { IoHeartOutline } from "react-icons/io5";
 import { useState } from 'react';
 import { FaXmark } from "react-icons/fa6";
+import Footer from './components/Footer/footer';
 function App() {
     const [favItems, setFavItems] = useState([]);
     // Function to add and update favourite item list
@@ -22,7 +23,7 @@ function App() {
             <Hero></Hero>
 
             {/* main section */}
-            <div className="main px-30 py-28 bg-[#EBF0F5] w-[1820]">
+            <div className="main px-36 py-28 bg-[#EBF0F5] w-[1820]">
                 <h1 className="text-[#0E2954] text-4xl mb-5 font-bold">Active Auctions</h1>
                 <p className="text-xl mb-8">Bid on your favorite items</p>
                 <div className="bid-container flex gap-6">
@@ -70,6 +71,8 @@ function App() {
                     </div>
                 </div>
             </div>
+            {/* Footer */}
+            <Footer></Footer>
         </>
     );
 }
