@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { IoHeartOutline, IoHeart } from "react-icons/io5";
-const BidItem = ({ BidItem }) => {
+const BidItem = ({ BidItem ,handleBidClick, favItems}) => {
     const { id, image, title, currentBidPrice, timeLeft } = BidItem;
 
-    const [isLoved, setIsLoved] = React.useState(false);
+    const [isLoved, setIsLoved] = useState(false);
+
+    useEffect(() => {
+        setIsLoved(favItems.some((item) => item.id === id));
+    }, [favItems, id]);
 
     const handleLoveClick = () => {
+        
         setIsLoved(!isLoved);
         <IoHeart className="pl-4 w-15 h-25 text-red-500 cursor-not-allowed pointer-none:" />
+        handleBidClick(BidItem);
         alert( `"${title} added to favourites"`);
+        
     };
 
     return (
@@ -26,7 +33,7 @@ const BidItem = ({ BidItem }) => {
             <td>${currentBidPrice.toFixed(2)}</td>
             <td>{timeLeft}</td>
             <td>
-                <span 
+                <span className='fav-button'
                     onClick={ !isLoved ? (handleLoveClick): null}
                 >
                     {isLoved ? <IoHeart className="pl-4 w-15 h-25 text-red-500 cursor-not-allowed pointer-none: " /> :

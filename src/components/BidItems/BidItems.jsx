@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import BidItem from './BidItem';
 
-const BidItems = ({handleBidClick}) => {
+const BidItems = ({handleBidClick,favItems}) => {
     const [BidItems, setBidItems] = useState([]);
 
     useEffect(() => {
@@ -25,7 +25,7 @@ const BidItems = ({handleBidClick}) => {
                 <tbody className='text-[#0E2954] text-lg '>
                         {
                             BidItems.map((item) => (
-                                <BidItem key={item.id} BidItem={item} handleBidClick={handleBidClick}></BidItem>
+                                <BidItem key={item.id} BidItem={item} handleBidClick={handleBidClick} favItems={favItems}></BidItem>
                             ))
                         }
                 </tbody>
