@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "title": "Professional Camera",
+    "description": "A high-quality Fujifilm X-T10 camera for photography enthusiasts.",
+    "currentBidPrice": 950.00,
+    "timeLeft": "2 days 5 hours",
+    "bidsCount": 22,
+    "image": "https://i.ibb.co.com/JFCsLMY4/Bid1-min.png"
+  },
+  {
+    "id": 2,
+    "title": "Acoustic Guitar",
+    "description": "A classic acoustic guitar with a rich and vibrant sound.",
+    "currentBidPrice": 300.00,
+    "timeLeft": "1 day 3 hours",
+    "bidsCount": 15,
+    "image": "https://i.ibb.co.com/svtYF1dv/Bid2-min.png"
+  },
+  {
+    "id": 3,
+    "title": "High-Performance Laptop",
+    "description": "A sleek and powerful laptop suitable for gaming and productivity.",
+    "currentBidPrice": 1200.00,
+    "timeLeft": "3 days 10 hours",
+    "bidsCount": 18,
+    "image": "https://i.ibb.co.com/GfZNmSyz/Bid3-min.png"
+  },
+  {
+    "id": 4,
+    "title": "Luxury Watch",
+    "description": "A luxury wristwatch with a leather strap and elegant design.",
+    "currentBidPrice": 500.00,
+    "timeLeft": "4 days 2 hours",
+    "bidsCount": 20,
+    "image": "https://i.ibb.co.com/0p1yL6Qh/Bid4-min.png"
+  },
+  {
+    "id": 5,
+    "title": "Ergonomic Chair",
+    "description": "A comfortable and stylish ergonomic chair for home or office use.",
+    "currentBidPrice": 250.00,
+    "timeLeft": "5 days 6 hours",
+    "bidsCount": 12,
+    "image": "https://i.ibb.co.com/rRPXtQs7/Bid5-min.png"
+  },
+  {
+    "id": 6,
+    "title": "Milk and Honey Book",
+    "description": "A popular poetry book by Rupi Kaur, filled with heartfelt poems.",
+    "currentBidPrice": 20.00,
+    "timeLeft": "6 days 12 hours",
+    "bidsCount": 30,
+    "image": "https://i.ibb.co.com/Z6CctLMV/Bid6-min.png"
+  },
+  {
+    "id": 7,
+    "title": "Antique Vase",
+    "description": "A rare antique vase with intricate and timeless designs.",
+    "currentBidPrice": 800.00,
+    "timeLeft": "7 days 8 hours",
+    "bidsCount": 10,
+    "image": "https://i.ibb.co.com/TMg5d3WK/Bid7-min.png"
+  }
+]
