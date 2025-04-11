@@ -5,7 +5,7 @@ const Hero = () => {
         <div
             className="hero h-[730px] w-[1817px] justify-start"
             style={{
-                backgroundImage: "url('../src/assets/Banner-min.jpg')",
+                backgroundImage: "url('https://i.ibb.co.com/hFTYQ2bY/Banner-min.jpg')",
                 
                 backgroundSize: '135%',
 
