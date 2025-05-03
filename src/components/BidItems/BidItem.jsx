@@ -1,5 +1,5 @@
 import React from 'react';
-import { IoHeartOutline, IoHeart } from "react-icons/io5";
+import { IoHeart, IoHeartOutline } from "react-icons/io5";
 
 const BidItem = ({ BidItem, handleBidClick, favItems }) => {
     const { id, image, title, currentBidPrice, timeLeft } = BidItem;
@@ -28,8 +28,8 @@ const BidItem = ({ BidItem, handleBidClick, favItems }) => {
             <td>{timeLeft}</td>
             <td>
                 <span
-                    onClick={handleLoveClick}
-                    className={`cursor-pointer text-5xl ${isLoved ? 'text-red-500' : 'text-gray-400'}`}
+                    onClick={!isLoved ? handleLoveClick : undefined}
+                    className={`text-5xl ${isLoved ? 'text-red-500 cursor-no-drop' : 'text-gray-400 cursor-pointer'}`}
                 >
                     {isLoved ? (
                         <IoHeart className="text-red-500" />
